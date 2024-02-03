@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: serviceapp2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: serviceapp2
+  template:
+    metadata:
+      labels:
+        app: serviceapp2
+    spec:
+      containers:
+        - image: mystoo/service2_app:latest
+          imagePullPolicy: IfNotPresent
+          name: containerservice2
+      restartPolicy: Always

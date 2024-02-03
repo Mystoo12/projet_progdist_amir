@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: servicesapp1
+  annotations:
+spec:
+  rules:
+    - host: serviceapps1.info
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: serviceapp1
+                port:
+                  number: 8080
+    - host: serviceapps2.info
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: serviceapp2
+                port:
+                  number: 8080
